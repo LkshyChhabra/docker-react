@@ -1,0 +1,10 @@
+sudo: required
+
+services: 
+  - docker
+
+before-install:
+  - docker build -t lkshy/docker-react -f Dockerfile.dev .
+
+script: 
+  docker run lkshy/docker-react npm run test -- --coverage
